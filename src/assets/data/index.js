@@ -1520,7 +1520,7 @@ export const group_members_data = [
     id: 3,
     name: "John Owusu Ansah",
     index_number: "5221040824",
-    position: "Group Leader",
+    position: "Leader",
     image: member_824,
     gender: "Male",
   },

@@ -101,7 +101,7 @@ function MobileMenu() {
           </li>
         ))}
         <li>
-          <Link to="/wishlist">Cart</Link>
+          <Link to="/wishlist">Wish List</Link>
         </li>
         <li>
           <button>Sign in</button>

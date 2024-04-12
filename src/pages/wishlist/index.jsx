@@ -13,7 +13,9 @@ function WishList() {
 
   return (
     <div className="h-screen">
-      <h1 className="text-5xl text-center py-5 font-bold">WishList</h1>
+      <h1 className="text-5xl text-center py-5 font-bold max-sm:text-2xl">
+        WishList
+      </h1>
       <WishlistTable data={wishList} handleDelete={handleDelete} />
     </div>
   );

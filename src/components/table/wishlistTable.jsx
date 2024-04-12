@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 function WishlistTable({ data, handleDelete }) {
   return (
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table w-full">
         <thead>
           <tr>
-            <th className="text-lg">Item</th>
-            <th className="text-lg">Item Name</th>
-            <th className="text-lg">Description</th>
-            <th className="text-lg">Check Recipie</th>
-            <th className="text-lg">Remove</th>
+            <th className="text-lg max-sm:text-sm">Item</th>
+            <th className="text-lg max-sm:text-sm">Item Name</th>
+            <th className="text-lg max-sm:text-sm">Description</th>
+            <th className="text-lg max-sm:text-sm">Check Recipie</th>
+            <th className="text-lg max-sm:text-sm">Remove</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +47,9 @@ function WishlistTable({ data, handleDelete }) {
                 <td>
                   <div className="flex items-center gap-3">
                     <div>
-                      <div className="font-bold">{data.name}</div>
+                      <div className="font-bold max-sm:font-medium max-sm:text-sm">
+                        {data.name}
+                      </div>
                       <span className="badge badge-ghost badge-sm">
                         {data.category}
                       </span>
@@ -56,14 +58,18 @@ function WishlistTable({ data, handleDelete }) {
                 </td>
                 {/* Description */}
                 <td>
-                  <div>{data.description}</div>
+                  <p className="text-xs">{data.description}</p>
                 </td>
                 {/* View recipie */}
                 <td>
                   <div>
                     <Link to={`/recipie-item/${data.id}`}>
                       <button className="btn btn-ghost">
-                        <img src={view} alt="view-icon" className="" />
+                        <img
+                          src={view}
+                          alt="view-icon"
+                          className="max-[599px]:w-10"
+                        />
                       </button>
                     </Link>
                   </div>
@@ -74,7 +80,11 @@ function WishlistTable({ data, handleDelete }) {
                     className="btn btn-ghost"
                     onClick={() => handleDelete(data.id)}
                   >
-                    <img src={close} alt="close-icon" className="" />
+                    <img
+                      src={close}
+                      alt="close-icon"
+                      className="max-[399px]:w-10"
+                    />
                   </button>
                 </td>
               </tr>

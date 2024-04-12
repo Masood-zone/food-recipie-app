@@ -9,11 +9,11 @@ function RecipieView() {
 
   return (
     <div className="h-screen mt-10">
-      <h1 className="text-5xl text-center py-5 font-bold">
+      <h1 className="text-5xl max-lg:text-lg max-md:text-3xl max-sm:text2xl text-center py-5 font-bold">
         {singleRecipie.name} Recipie
       </h1>
       {/* Recipie Container */}
-      <article className="flex my-5  w-full max-lg:flex-col max-lg:w-full ">
+      <article className="flex my-5 w-full max-lg:flex-col max-lg:w-full ">
         {/* Recipie Overview */}
         <div className="flex flex-col w-[30%] max-lg:w-full p-5 justify-center items-start gap-3 max-lg:items-center">
           <div className="w-auto">
