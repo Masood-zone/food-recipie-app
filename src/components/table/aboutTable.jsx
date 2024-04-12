@@ -41,7 +41,7 @@ function AboutTable({ data }) {
                     <p className="font-bold max-sm:font-medium max-sm:text-xs ">
                       {member.name}
                     </p>
-                    <span className="badge badge-ghost badge-sm w-full max-sm:my-1">
+                    <span className="badge badge-ghost badge-sm max-sm:my-1">
                       {member.position}
                     </span>
                   </div>
