@@ -3,7 +3,10 @@ import { webIcon1, webIcon2 } from "../../assets/svgs";
 
 function BetterExperience() {
   return (
-    <div className="m-auto my-24 text-web-text p-6" id="web-app">
+    <div
+      className="m-auto my-24 text-web-text max-lg:text-2xl max-md:text-xl max-sm:text-lg p-6"
+      id="web-app"
+    >
       <p className="text-center font-medium">
         For Better Experience, sign in to our Web App
       </p>

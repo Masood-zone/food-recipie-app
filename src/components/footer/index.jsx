@@ -9,7 +9,7 @@ function Footer() {
   const SOCIAL_ICONS = [
     {
       id: 1,
-      url: "https://www.facebook.com",
+      url: "https://www.facebook.com/share/EVYq5WuLcb8Yvdii/?mibextid=LQQJ4d",
       icon: assets.facebook_icon,
     },
     {
@@ -19,7 +19,7 @@ function Footer() {
     },
     {
       id: 3,
-      url: "https://www.linkedin.com",
+      url: "https://www.linkedin.com/in/john-owusu-ansah-2a8b7a272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       icon: assets.linkedin_icon,
     },
   ];
@@ -29,7 +29,7 @@ function Footer() {
       id="contact-us"
     >
       {/*Footer content */}
-      <div className="w-full grid grid-cols-3 gap-20">
+      <div className="w-full grid grid-cols-3 gap-20 max-md:flex max-md:flex-col max-md:gap-9">
         {/*First section */}
         <div className="flex flex-col items-start gap-5">
           <MainLogo icon />
@@ -88,7 +88,7 @@ function Footer() {
       </div>
       {/*Copyright */}
       <hr className="w-full h-[2px] my-5 mx-0 bg-gray-400 border-none" />
-      <p className="">
+      <p className="max-md:text-center">
         Copyright&copy; 2024 &copy;Meals.com - All Rights Reserved
       </p>
     </footer>

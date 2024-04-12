@@ -19,7 +19,6 @@ const recipieSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (isAlreadyInWishList) {
-        //  toast.error("Item is already in the wishlist");
         toast.warning("This item is already in your wishlist!");
       }
       // If the item is not in the wishList, add it
@@ -29,6 +28,7 @@ const recipieSlice = createSlice({
       }
     },
     removeFromWishList: (state, action) => {
+      toast.error("Removed from wishlist");
       state.wishList = state.wishList.filter(
         (item) => item.id !== action.payload.id
       );
