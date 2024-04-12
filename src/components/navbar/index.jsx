@@ -2,7 +2,6 @@ import React from "react";
 import { NAVBAR_LINKS } from "./data";
 import { Link } from "react-router-dom";
 import { CiMenuKebab } from "react-icons/ci";
-import { FaCartArrowDown } from "react-icons/fa";
 import MainLogo from "../logo";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 
@@ -93,7 +92,7 @@ function MobileMenu() {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content z-[1] menu p-2 shadow-xl bg-base-200 rounded-box w-52 mt-5  shadow-lg"
+        className="dropdown-content z-[1] menu p-2 bg-base-200 rounded-box w-52 mt-5  shadow-lg"
       >
         {NAVBAR_LINKS.map((link) => (
           <li key={link.id}>
@@ -101,7 +100,7 @@ function MobileMenu() {
           </li>
         ))}
         <li>
-          <Link to="/wishlist">Wish List</Link>
+          <Link to="/wishlist"></Link>
         </li>
         <li>
           <button>Sign in</button>
