@@ -9,10 +9,12 @@ import WishList from "./pages/wishlist";
 import NotFound from "./pages/not-found";
 import RecipieView from "./pages/menu/recipieView";
 import Footer from "./components/footer";
+import ScrollToTop from "./utils/scrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="w-[80%] h-auto mx-auto max-xl:w-full max-md:w-full">
         <Navbar />
         <div className="mt-28">
