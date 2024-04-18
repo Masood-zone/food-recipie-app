@@ -3,11 +3,15 @@ import { NAVBAR_LINKS } from "./data";
 import { Link } from "react-router-dom";
 import { CiMenuKebab } from "react-icons/ci";
 import MainLogo from "../logo";
-import { FaHeartCircleCheck } from "react-icons/fa6";
+import { FaCartPlus } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [currLink, setCurrLink] = React.useState("home");
+  const { wishList } = useSelector((state) => state.recipie);
 
+  console.log(wishList);
+  const totalWishList = wishList.length;
   return (
     <nav className="navbar h-16 fixed top-0 left-0 w-full right-0 bg-white z-[1] flex justify-center items-center">
       {/* Logo */}
@@ -49,10 +53,15 @@ function Navbar() {
       {/* Cart and form modal */}
       <div className="navbar-end flex items-center ">
         <div className="flex items-center gap-10 max-md:gap-4 max-md:hidden">
-          <Link to="/wishlist">
-            <FaHeartCircleCheck fontSize={30} className="text-dark-blue" />
-          </Link>
-          {/* Display cart total here */}
+          <div className="relative w-10 h-10">
+            <Link to="/wishlist">
+              <FaCartPlus fontSize={35} className="text-dark-blue" />
+            </Link>
+            {/* Display cart total here */}
+            <p className="absolute bottom-0 right-0 px-2 bg-[#F43F5E] text-center text-white rounded-full">
+              {totalWishList}
+            </p>
+          </div>
           {/* Show modal here */}
           <button
             className="bg-transparent text-[16px] text-dark-blue border-2 border-tomato px-6 py-3 rounded-full hover:bg-light-tomato cursor-pointer transition-all max-md:px-5 "
@@ -100,13 +109,12 @@ function MobileMenu() {
           </li>
         ))}
         <li>
-          <Link to="/wishlist"></Link>
+          <Link to="/wishlist">Wishlist</Link>
         </li>
         <li>
           <button>Sign in</button>
         </li>
         {/* Display cart total here */}
-        {/* Show modal here */}
       </ul>
     </div>
   );
