@@ -58,8 +58,10 @@ import food_31 from "../images/food_31.png";
 import food_32 from "../images/food_32.png";
 // Group Picture imports
 import member_821 from "../images/member-821.jpg";
+import member_823 from "../images/member-823.jpg";
 import member_824 from "../images/member-824.jpg";
 import member_825 from "../images/member-825.png";
+import member_826 from "../images/member-826.jpg";
 import member_827 from "../images/member-827.jpg";
 import member_829 from "../images/member-829.jpg";
 
@@ -1513,7 +1515,7 @@ export const group_members_data = [
     name: "Philip Nilimor Morti",
     index_number: "5221040823",
     position: "Member",
-    image: member_821,
+    image: member_823,
     gender: "Male",
   },
   {
@@ -1537,7 +1539,7 @@ export const group_members_data = [
     name: "Duah Lauretta",
     index_number: "5221040826",
     position: "Member",
-    image: member_821,
+    image: member_826,
     gender: "Female",
   },
   {
@@ -1554,14 +1556,6 @@ export const group_members_data = [
     index_number: "5221040829",
     position: "Member",
     image: member_829,
-    gender: "Male",
-  },
-  {
-    id: 8,
-    name: "Moses Mensah",
-    index_number: "5221040830",
-    position: "Member",
-    image: member_821,
     gender: "Male",
   },
 ];

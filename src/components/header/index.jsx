@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function Header() {
+  const toViewMenu = () => {
+    window.location.href = "#menu";
+  };
   return (
     <div className="h-[34vw] my-8 mx-auto bg-header-img relative rounded-2xl overflow-hidden max-xl:h-[315px] max-sm:h-[350px]">
       <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -15,8 +17,11 @@ function Header() {
           follow recipies, you'll be cooking like a pro in no time. Our mission
           is to make cooking fun and easy for everyone, one recipie at a time.
         </p>
-        <button className="border-none text-dark-blue font-medium mt-2 max-xl:m-0 p-[1vw] px-[2.3vw] bg-white rounded-full">
-          <Link to="#menu">View Menu</Link>
+        <button
+          className="border-none text-dark-blue font-medium mt-2 max-xl:m-0 p-[1vw] px-[2.3vw] bg-white rounded-full"
+          onClick={() => toViewMenu()}
+        >
+          View Menu
         </button>
       </div>
     </div>
