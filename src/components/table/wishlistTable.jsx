@@ -50,9 +50,6 @@ function WishlistTable({ data, handleDelete }) {
                       <div className="font-bold max-sm:font-medium max-sm:text-sm">
                         {data.name}
                       </div>
-                      <span className="badge badge-ghost badge-sm">
-                        {data.category}
-                      </span>
                     </div>
                   </div>
                 </td>

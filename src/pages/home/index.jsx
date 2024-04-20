@@ -5,7 +5,7 @@ import FoodDisplay from "../menu/foodDisplay";
 import BetterExperience from "./betterExperience";
 
 function Home() {
-  const [category, setCategory] = React.useState("All");
+  const [category, setCategory] = React.useState(null);
   return (
     <div className="px-3">
       <Header />

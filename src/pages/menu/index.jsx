@@ -1,8 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { foodApi } from "../../redux/hook";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function ExploreMenu({ category, setCategory }) {
-  const { menuList } = useSelector((state) => state.recipie);
+  const { data, isLoading } = foodApi.useGetCategoriesQuery();
   return (
     <div className="flex flex-col gap-5 w-full" id="menu">
       <h1 className="font-medium text-gray-800 text-2xl max-md:text-lg">
@@ -17,30 +19,38 @@ function ExploreMenu({ category, setCategory }) {
       </p>
 
       <div className="flex justify-between items-center gap-7 text-center my-5 mx-0 overflow-x-scroll menu-list-overflow overflow-hidden">
-        {menuList?.map((item) => (
-          <button
-            key={item.id}
-            className=""
-            onClick={() =>
-              setCategory((prev) =>
-                prev === item.menu_name ? "All" : item.menu_name
-              )
-            }
-          >
-            <img
-              className={`w-[7.5vw] min-w-20 rounded-full transition-all duration-200 cursor-pointer ${
-                category === item.menu_name
-                  ? "border-4 border-tomato rounded-full p-0.5"
-                  : ""
-              }`}
-              src={item.menu_image}
-              alt={item.menu_name}
-            />
-            <p className="mt-2 text-gray-600 cursor-pointer">
-              {item.menu_name}
-            </p>
-          </button>
-        ))}
+        {isLoading ? (
+          <div className="loader"></div>
+        ) : data?.cartegories.length > 0 ? (
+          data?.cartegories?.map((item, index) => {
+            return (
+              <div
+                onClick={() => {
+                  setCategory((prevCategory) =>
+                    prevCategory === item.id ? null : item.id
+                  );
+                }}
+                key={index}
+                className="cursor-pointer"
+              >
+                <LazyLoadImage
+                  className={`w-16 h-auto min-w-20 rounded-full transition-all duration-200 skeleton ${
+                    category === item.id ? "border-4 border-[#ff6347] p-1" : ""
+                  }`}
+                  src={item.image}
+                  alt=""
+                />
+                <p className="mt-2 text-gray-700 text-base cursor-pointer">
+                  {item.type}
+                </p>
+              </div>
+            );
+          })
+        ) : (
+          <div>
+            <p>No categories found</p>
+          </div>
+        )}
       </div>
       <hr className="my-2 h-0.5 bg-gray-200 border-none" />
     </div>

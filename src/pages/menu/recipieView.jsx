@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { foodApi } from "../../redux/hook";
 
 function RecipieView() {
   const { id } = useParams();
-  const { recipieList } = useSelector((state) => state.recipie);
-  const singleRecipie = recipieList.find((item) => item.id === id);
-  console.log("Recipe: ", singleRecipie);
+  const { data } = foodApi.useGetFoodsQuery();
+  console.log(data);
+  const singleRecipie = data?.recipes?.find((item) => item.id === id);
   return (
     <div className="h-screen mt-10">
       <h1 className="text-5xl max-lg:text-lg max-md:text-3xl max-sm:text2xl text-center py-5 font-bold">
@@ -33,8 +33,7 @@ function RecipieView() {
               <p className="text-base my-2">{singleRecipie.description}</p>
             </div>
             {/* Recipie List */}
-            <div className="flex w-full max-lg:justify-between max-lg:flex-row  max-lg:w-full justify-start items-start gap-3 max-lg:gap-5 ">
-              {/* Ingredients */}
+            {/* <div className="flex w-full max-lg:justify-between max-lg:flex-row  max-lg:w-full justify-start items-start gap-3 max-lg:gap-5 ">
               <div className="w-80">
                 <h1 className="text-2xl font-medium">Ingredients</h1>
                 <ul className="list-disc">
@@ -55,7 +54,7 @@ function RecipieView() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </article>

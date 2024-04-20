@@ -1,11 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { menu_list } from "../../assets/data/index";
-import { recipie_list } from "../../assets/data/index";
 import { toast } from "react-toastify";
 
 const initialState = {
-  recipieList: recipie_list,
-  menuList: menu_list,
   wishList: [],
 };
 
@@ -14,18 +10,9 @@ const recipieSlice = createSlice({
   initialState,
   reducers: {
     addToWishList: (state, action) => {
-      // Check if the item is already in the wishList
-      const isAlreadyInWishList = state.wishList.some(
-        (item) => item.id === action.payload.id
-      );
-      if (isAlreadyInWishList) {
-        toast.warning("This item is already in your wishlist!");
-      }
       // If the item is not in the wishList, add it
-      if (!isAlreadyInWishList) {
-        state.wishList.push(action.payload);
-        toast.success("Added to wishlist");
-      }
+      state.wishList.push(action.payload);
+      toast.success("Added to wishlist");
     },
     removeFromWishList: (state, action) => {
       toast.error("Removed from wishlist");
