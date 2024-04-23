@@ -1558,4 +1558,12 @@ export const group_members_data = [
     image: member_829,
     gender: "Male",
   },
+  {
+    id: 7,
+    name: "Moses Mensah",
+    index_number: "5221040830",
+    position: "Member",
+    image: member_829,
+    gender: "Male",
+  },
 ];
