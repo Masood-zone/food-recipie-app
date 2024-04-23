@@ -41,7 +41,7 @@ export const foodApi = createApi({
     }),
     createUser: builder.mutation({
       query: (data) => ({
-        url: `/client/register`,
+        url: `/client/signUp`,
         method: "POST",
         body: data,
       }),
