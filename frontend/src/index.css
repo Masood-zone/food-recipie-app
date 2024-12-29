@@ -1,73 +1,68 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Neucha&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* Global */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
-  scroll-behavior: smooth;
-}
-
 :root {
-  --tomato-color: "tomato";
-  --dark-blue-color: "#49557e";
-  --light-tomato: "#fff4f2";
-}
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-body {
-  min-height: 100vh;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
-/* Header Card Background */
-.bg-header-img {
-  background-image: url("./assets/images/header-img.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.header-animation {
-  animation: fadeIn 3s;
-}
-.menu-list-overflow::-webkit-scrollbar {
-  display: none;
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-/* Recipie List Animation */
-.recipie-item-animation {
-  animation: fadeIn 1s;
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
-  100% {
-    opacity: 1;
+  a:hover {
+    color: #747bff;
   }
-}
-
-/* CSS loader */
-.loader {
-  width: 50px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(farthest-side, #333 94%, #0000) top/8px 8px
-      no-repeat,
-    conic-gradient(#0000 30%, #333);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
-  animation: l13 1s infinite linear;
-}
-@keyframes l13 {
-  100% {
-    transform: rotate(1turn);
+  button {
+    background-color: #f9f9f9;
   }
 }
