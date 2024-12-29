@@ -4,7 +4,10 @@ const router = Router();
 const client = require("../../../controllers/client");
 const validationError = require("../../../utils/validationError");
 const validationScheme = require("../../../validator/validationSchema");
-const isValid = [validationScheme.clientValidationRules, validationError.validateRequestSchema];
+const isValid = [
+  validationScheme.clientValidationRules,
+  validationError.validateRequestSchema,
+];
 const availability = require("../../../validator/middleware/clientCheck");
 
 router.post("/signUp", isValid, availability.client, client.addClient);
