@@ -1,0 +1,8 @@
+{
+    "logConfig":{
+        "logFolder":".//logs//",
+        "logFile":"“NodeWinstonApp-%DATE%.log",
+        "logLevel":"error"
+    }
+}
+

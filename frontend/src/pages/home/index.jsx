@@ -9,8 +9,8 @@ function Home() {
   return (
     <div className="px-3">
       <Header />
-      <ExploreMenu category={category} setCategory={setCategory} />
-      <FoodDisplay category={category} />
+      {/* <ExploreMenu category={category} setCategory={setCategory} /> */}
+      {/* <FoodDisplay category={category} /> */}
       <BetterExperience />
     </div>
   );
