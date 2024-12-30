@@ -98,3 +98,5 @@
 ::1 - - [30/Dec/2024:23:15:21 +0000] "GET /api/v1/web/client/list HTTP/1.1" 200 317 "-" "PostmanRuntime/7.43.0"
 ::1 - - [30/Dec/2024:23:15:35 +0000] "POST /api/v1/web/client/signup HTTP/1.1" 201 90 "-" "PostmanRuntime/7.43.0"
 ::1 - - [30/Dec/2024:23:15:48 +0000] "POST /api/v1/web/client/signup HTTP/1.1" 201 80 "-" "PostmanRuntime/7.43.0"
+::1 - - [30/Dec/2024:23:15:52 +0000] "GET /api/v1/web/client/list?users=admin HTTP/1.1" 200 322 "-" "PostmanRuntime/7.43.0"
+::1 - - [30/Dec/2024:23:15:55 +0000] "GET /api/v1/web/client/list?users=users HTTP/1.1" 200 306 "-" "PostmanRuntime/7.43.0"
