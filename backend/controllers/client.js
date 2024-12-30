@@ -30,8 +30,16 @@ exports.addClient = async (req, res, next) => {
 };
 
 exports.getClients = async (req, res, next) => {
+  const users = req.query.users;
   try {
-    const clients = await getClients();
+    let clients;
+    if (users === "admin") {
+      clients = await getClients({ role: "ADMIN" || "Admin" });
+    } else if (users === "users") {
+      clients = await getClients({ role: "USER" || "User" });
+    } else {
+      clients = await getClients();
+    }
     res.status(httpstatus.OK).json({
       clients,
     });
@@ -55,13 +63,16 @@ exports.getClientById = async (req, res, next) => {
 };
 
 exports.editClient = async (req, res, next) => {
-  console.log(req.params.id);
-  console.log(req.body);
+  const id = parseInt(req.params.id);
+  const body = req.body;
   try {
-    const client = await editClient(req.params.id, req.body);
-    // delete client.password;
+    const client = await editClient(id, body);
+    const clientData = {
+      ...client,
+      password: undefined,
+    };
     res.status(httpstatus.OK).json({
-      client,
+      clientData,
     });
   } catch (error) {
     logger.error(error);
@@ -70,8 +81,9 @@ exports.editClient = async (req, res, next) => {
 };
 
 exports.removeClient = async (req, res, next) => {
+  const id = parseInt(req.params.id);
   try {
-    const client = await removeClient(req.params.id);
+    const client = await removeClient(id);
     res.status(httpstatus.OK).json({
       client,
     });

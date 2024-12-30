@@ -6,10 +6,15 @@ const signUp = async (data) => {
   });
   return client;
 };
-
-const getClients = async () => {
-  const clients = await prisma.client.findMany({});
-  return clients;
+const getClients = async (filter = {}) => {
+  try {
+    const clients = await prisma.client.findMany({
+      where: filter,
+    });
+    return clients;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getClientById = async (id) => {
@@ -20,7 +25,6 @@ const getClientById = async (id) => {
 };
 
 const editClient = async (id, data) => {
-  console.log(id, data, "xxxxxxx");
   const client = await prisma.client.update({
     where: { id },
     data,

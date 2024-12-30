@@ -1,0 +1,68 @@
+2024-12-30T23:02:08.300Z [31merror[39m:	
+Invalid `prisma.client.findUnique()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:16:38
+
+  13 };
+  14 
+  15 const getClientById = async (id) => {
+→ 16   const client = await prisma.client.findUnique({
+         where: {
+           id: "signup"
+               ~~~~~~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2024-12-30T23:02:33.100Z [31merror[39m:	
+Invalid `prisma.client.create()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:4:38
+
+  1 const prisma = require("../utils/prismaUtil");
+  2 
+  3 const signUp = async (data) => {
+→ 4   const client = await prisma.client.create({
+        data: {
+          name: "Kirito Kirigaya",
+          ~~~~
+          username: "",
+          email: "admin@gmail.com",
+          password: "$2b$10$uRdain1uabN2eJkO7paabepfIswJWmItYaLTT2rzsDe/oq6wJpqJ6",
+          role: "ADMIN",
+      ?   orders?: OrderCreateNestedManyWithoutClientInput
+        }
+      })
+
+Unknown argument `name`. Did you mean `role`? Available options are marked with ?.
+2024-12-30T23:04:36.903Z [31merror[39m:	
+Invalid `prisma.client.update()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:24:38
+
+  21 
+  22 const editClient = async (id, data) => {
+  23   console.log(id, data, "xxxxxxx");
+→ 24   const client = await prisma.client.update({
+         where: {
+           id: "2"
+               ~~~
+         },
+         data: {
+           username: "Johnston"
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2024-12-30T23:14:39.243Z [31merror[39m:	
+Invalid `prisma.client.delete()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:37:44
+
+  34 };
+  35 
+  36 const removeClient = async (id) => {
+→ 37   const client = await prisma.client.delete({
+         where: {
+           id: "1"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
