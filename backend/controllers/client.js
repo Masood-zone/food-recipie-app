@@ -108,7 +108,7 @@ exports.login = async (req, res, next) => {
         delete client.password;
         const token = signToken(client.id);
         res.status(httpstatus.OK).json({
-          message: "User succesfully logged in !",
+          message: "User succesfully logged in!",
           username: client.username,
           email: client.email,
           token,

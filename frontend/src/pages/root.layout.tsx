@@ -1,16 +1,14 @@
+import { ModeToggle } from "@/components/theme/toggle-theme";
 import { Outlet } from "react-router-dom";
-import Navbar from "./client/components/navbar/navbar";
-import Footer from "./client/components/footer/footer";
 
 export default function RootLayout() {
   return (
-    <>
-      {/* Navbar */}
-      <Navbar />
-      {/* Contents */}
+    <main className="relative">
       <Outlet />
-      {/* Footer */}
-      <Footer />
-    </>
+      {/* Theme */}
+      <div className="fixed bottom-2.5 right-2.5">
+        <ModeToggle />
+      </div>
+    </main>
   );
 }

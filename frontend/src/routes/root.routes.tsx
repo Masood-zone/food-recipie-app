@@ -13,28 +13,42 @@ const rootRoutes = createBrowserRouter(
       <Route path="/" element={<RootLayout />}>
         {/* Home */}
         <Route
-          index
+          path="/"
           lazy={async () => {
-            const { default: Home } = await import("@/pages/client/home");
-            return { Component: Home };
+            const { default: HomeLayout } = await import(
+              "@/pages/client/home/index"
+            );
+            return { Component: HomeLayout };
           }}
-        />
-        {/* About us */}
-        <Route
-          path="about-us"
-          lazy={async () => {
-            const { default: AboutUs } = await import("@/pages/client/about");
-            return { Component: AboutUs };
-          }}
-        />
-        {/* Cart */}
-        <Route
-          path="cart"
-          lazy={async () => {
-            const { default: Cart } = await import("@/pages/client/cart");
-            return { Component: Cart };
-          }}
-        />
+        >
+          {/* Home page */}
+          <Route
+            index
+            lazy={async () => {
+              const { default: Home } = await import(
+                "@/pages/client/home/home"
+              );
+              return { Component: Home };
+            }}
+          />
+          {/* About us */}
+          <Route
+            path="about-us"
+            lazy={async () => {
+              const { default: AboutUs } = await import("@/pages/client/about");
+              return { Component: AboutUs };
+            }}
+          />
+          {/* Cart */}
+          <Route
+            path="cart"
+            lazy={async () => {
+              const { default: Cart } = await import("@/pages/client/cart");
+              return { Component: Cart };
+            }}
+          />
+          {/* Checkout */}
+        </Route>
         {/* Auth Routes */}
         <Route path="auth" element={<AuthLayout />}>
           {/* Login */}
