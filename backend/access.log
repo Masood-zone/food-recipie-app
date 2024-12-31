@@ -134,3 +134,4 @@
 ::1 - - [31/Dec/2024:01:48:43 +0000] "POST /api/v1/web/client/login HTTP/1.1" 200 259 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
 ::1 - - [31/Dec/2024:01:51:24 +0000] "POST /api/v1/web/client/login HTTP/1.1" 500 322 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
 ::1 - - [31/Dec/2024:01:51:28 +0000] "POST /api/v1/web/client/login HTTP/1.1" 200 259 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+::1 - - [31/Dec/2024:01:57:54 +0000] "POST /api/v1/web/client/login HTTP/1.1" 200 259 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"

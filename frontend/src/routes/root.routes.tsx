@@ -96,6 +96,14 @@ const rootRoutes = createBrowserRouter(
               return { Component: ResetPassword };
             }}
           />
+          {/* User */}
+          <Route
+            path="user"
+            lazy={async () => {
+              const { default: User } = await import("@/pages/auth/user/user");
+              return { Component: User };
+            }}
+          />
         </Route>
         {/* Not found */}
         <Route
