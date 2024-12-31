@@ -105,15 +105,14 @@ exports.login = async (req, res, next) => {
       if (!checkPassword) {
         throw new Error("Invalid credentials");
       } else {
-        delete client.password;
+        const userWithoutPassword = { ...client, password: undefined };
         const token = signToken(client.id);
         res.status(httpstatus.OK).json({
           message: "User succesfully logged in!",
-          username: client.username,
-          email: client.email,
-          token,
-          id: client.id,
-          role: client.role,
+          user: {
+            ...userWithoutPassword,
+            token,
+          },
         });
       }
     }

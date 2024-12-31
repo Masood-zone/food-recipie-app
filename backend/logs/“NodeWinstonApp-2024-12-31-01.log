@@ -1,0 +1,30 @@
+2024-12-31T01:26:44.525Z [31merror[39m:	
+Invalid `prisma.client.create()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:4:38
+
+  1 const prisma = require("../utils/prismaUtil");
+  2 
+  3 const signUp = async (data) => {
+→ 4   const client = await prisma.client.create({
+        data: {
+          email: "farzel@gmail.com",
+          password: "$2b$10$0gipyVHzorW6C1HufM.Hduqtkogx132V4UzGHiXRotDCW52sY66Se",
+      +   username: String
+        }
+      })
+
+Argument `username` is missing.
+2024-12-31T01:31:08.098Z [31merror[39m:	
+Invalid `prisma.client.delete()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:37:44
+
+  34 };
+  35 
+  36 const removeClient = async (id) => {
+→ 37   const client = await prisma.client.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2024-12-31T01:32:17.950Z [31merror[39m:	Invalid credentials
+2024-12-31T01:33:07.647Z [31merror[39m:	Invalid credentials
+2024-12-31T01:33:18.915Z [31merror[39m:	secretOrPrivateKey must have a value
+2024-12-31T01:36:37.878Z [31merror[39m:	secretOrPrivateKey must have a value
+2024-12-31T01:37:07.208Z [31merror[39m:	"expiresIn" should be a number of seconds or string representing a timespan

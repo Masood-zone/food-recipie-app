@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Form,
@@ -18,6 +16,8 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { LoginPic } from "@/assets";
 import { PasswordInput } from "./password-input";
+import { useRegister } from "@/services/auth/queries";
+import { ButtonLoader } from "@/components/shared/button/button-loader";
 
 const formSchema = z.object({
   username: z
@@ -38,18 +38,18 @@ export default function SignupForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+  const { mutateAsync: registerUser, isPending } = useRegister();
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
+      await registerUser({
+        ...values,
+        role: "USER",
+      });
     } catch (error) {
       console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+    } finally {
+      form.reset();
     }
   }
 
@@ -119,9 +119,13 @@ export default function SignupForm({
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full">
+                <ButtonLoader
+                  type="submit"
+                  className="w-full"
+                  isLoading={isPending}
+                >
                   Sign Up
-                </Button>
+                </ButtonLoader>
 
                 <div className="text-center text-sm">
                   Already have an account?{" "}

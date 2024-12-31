@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Form,
@@ -17,6 +15,8 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { LoginPic } from "@/assets";
 import { PasswordInput } from "./password-input";
+import { ButtonLoader } from "@/components/shared/button/button-loader";
+import { useLogin } from "@/services/auth/queries";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -33,18 +33,15 @@ export function LoginForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+  const { mutateAsync: loginUser, isPending } = useLogin();
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
+      await loginUser(values);
     } catch (error) {
       console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+    } finally {
+      form.reset();
     }
   }
 
@@ -102,9 +99,13 @@ export function LoginForm({
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full">
+                <ButtonLoader
+                  type="submit"
+                  isLoading={isPending}
+                  loadingText="Submitting..."
+                >
                   Login
-                </Button>
+                </ButtonLoader>
 
                 <div className="text-center text-sm">
                   Don&apos;t have an account?{" "}

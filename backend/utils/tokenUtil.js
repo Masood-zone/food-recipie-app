@@ -15,7 +15,7 @@ exports.setInvalidToken = (loggedout) =>
     expiresIn: 60,
   });
 exports.CheckToken = (req, res, next) => {
-  const bearerHeader = req.headers["auth-token"];
+  const bearerHeader = req.headers["Authorization"];
   if (bearerHeader) {
     const bearer = bearerHeader.split(" ");
     const bearerToken = bearer[1];
