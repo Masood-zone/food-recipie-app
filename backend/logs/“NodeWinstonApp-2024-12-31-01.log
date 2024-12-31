@@ -28,3 +28,4 @@ An operation failed because it depends on one or more records that were required
 2024-12-31T01:33:18.915Z [31merror[39m:	secretOrPrivateKey must have a value
 2024-12-31T01:36:37.878Z [31merror[39m:	secretOrPrivateKey must have a value
 2024-12-31T01:37:07.208Z [31merror[39m:	"expiresIn" should be a number of seconds or string representing a timespan
+2024-12-31T01:51:24.868Z [31merror[39m:	Invalid credentials
