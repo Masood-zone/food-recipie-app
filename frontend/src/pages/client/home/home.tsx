@@ -1,38 +1,30 @@
-import { InstagramIcon, TwitterIcon } from "lucide-react";
-import { Link } from "react-router-dom";
-import HeroCard from "../components/header/hero-card";
+import { HeroCarousel } from "../components/header/hero-carousel";
 
 export default function Home() {
+  const items = [
+    {
+      imageUrl:
+        "https://images.unsplash.com/photo-1519915495817-684cdf876a1c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZG9udXRzfGVufDB8fDB8fHww",
+      title: "Delicious Donuts",
+      description: "Indulge in our freshly baked, mouthwatering donuts!",
+    },
+    {
+      imageUrl:
+        "https://images.unsplash.com/photo-1454255779048-55ecd78837d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRvbnV0c3xlbnwwfHwwfHx8MA%3D%3D",
+      title: "Donut Paradise",
+      description: "Explore our wide variety of flavors and toppings!",
+    },
+    {
+      imageUrl:
+        "https://images.unsplash.com/photo-1519915529849-96bdf0f0680a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRvbnV0c3xlbnwwfHwwfHx8MA%3D%3D",
+      title: "Sweet Temptations",
+      description: "Treat yourself to our irresistible donut creations!",
+    },
+  ];
   return (
     <section className="mx-auto max-w-screen-2xl px-4 md:px-8">
       <div className="mb-12 flex w-full md:mb-16 lg:w-2/3 mx-auto">
-        <HeroCard />
-      </div>
-
-      <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-        <div className="flex h-12 w-64 divide-x overflow-hidden rounded-lg border">
-          {["Men", "Women", "Teens"].map((category) => (
-            <Link
-              key={category}
-              to="#"
-              className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
-            >
-              {category}
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-center gap-4 lg:justify-start">
-          <span className="text-sm font-semibold uppercase tracking-widest text-gray-400 sm:text-base">
-            Social
-          </span>
-          <span className="h-px w-12 bg-gray-200"></span>
-
-          <div className="flex gap-4">
-            <InstagramIcon />
-            <TwitterIcon />
-          </div>
-        </div>
+        <HeroCarousel items={items} autoPlayInterval={5000} />
       </div>
     </section>
   );
