@@ -44,6 +44,16 @@
             "date": 1735724853959,
             "name": "logs\\“NodeWinstonApp-2025-01-01-09.log",
             "hash": "017f5d8fdc5178827da1e0b866c5263206de8b95b81a72a2735c4d9fc04e4e73"
+        },
+        {
+            "date": 1735739328189,
+            "name": "logs\\“NodeWinstonApp-2025-01-01-13.log",
+            "hash": "64b45ddd077874cbafc7727e9ed9b60a7995bd3c77bca24d7263143210d2e8de"
+        },
+        {
+            "date": 1735740065837,
+            "name": "logs\\“NodeWinstonApp-2025-01-01-14.log",
+            "hash": "2f7affcbc638ec42438ebd04f1a56b2817b03d2f5d1e28dd8163c42d7be23dc8"
         }
     ],
     "hashType": "sha256"

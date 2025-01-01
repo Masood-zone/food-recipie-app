@@ -56,7 +56,7 @@ export const useCreateCategory = () => {
         description: "A Category has been added to the platform",
         duration: 5000,
       });
-      navigate("/admin/categories");
+      navigate("/admin/category");
     },
     onError: (error: Error) => {
       toast.error("Error creating category", {
@@ -73,7 +73,7 @@ export const useCreateCategory = () => {
 export const useUpdateCategory = () => {
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: async (data: CreateCategory) => {
+    mutationFn: async (data: UpdateCategory) => {
       try {
         const response = await updateCategory(data.id, data);
         return response;

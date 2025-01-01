@@ -22,7 +22,11 @@ export const fetchCategoryById = async (id: string) => {
 
 export const createCategory = async (data: CreateCategory) => {
   try {
-    const response = await api.post("/category/add", data);
+    const response = await api.post("/category/add", data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Error creating category:", error);

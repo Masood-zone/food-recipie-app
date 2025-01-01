@@ -1,0 +1,17 @@
+2025-01-01T14:01:05.836Z [31merror[39m:	
+Invalid `prisma.category.create()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\cartegory.js:3:32
+
+  1 const prisma = require("../utils/prismaUtil");
+  2 const addCategory = async (data) => {
+→ 3   return await prisma.category.create({
+        data: {
+          type: "Fast Food",
+          image: {
+            path: "hexandcube-h05BviyRzEo-unsplash.jpg"
+          }
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        }
+      })
+
+Argument `image`: Invalid value provided. Expected String or Null, provided Object.

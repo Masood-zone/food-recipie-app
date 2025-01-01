@@ -57,7 +57,7 @@ type UpdateAdmin = Partial<User, "role", Pick<User, "username" | "email">>;
 
 // Category, Recipe
 type CategoriesTable = Pick<Category, "id" | "type" | "image">;
-type CreateCategory = Pick<Category, "id" | "type" | "image">;
+type CreateCategory = FormData;
 type UpdateCategory = Partial<Category, "image", Pick<Category, "type">>;
 
 type RecipesTable = Pick<
