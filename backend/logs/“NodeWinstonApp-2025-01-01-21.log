@@ -1,0 +1,21 @@
+2025-01-01T21:01:52.606Z [31merror[39m:	
+Invalid `prisma.recipe.create()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:5:36
+
+  2 
+  3 const addFood = async (data) => {
+  4 
+→ 5   const food = await prisma.recipe.create({
+        data: {
+          title: "Koko",
+          description: "This is a very good ghanain delight",
+          quantity: 5,
+          total: 10,
+          price: 4,
+          categoryId: "6",
+                      ~~~
+          image: "https://res.cloudinary.com/food-delivery-images/image/upload/v1735765313/food/images/v8lnaryrasy4pyrqkptg.jpg"
+        }
+      })
+
+Argument `categoryId`: Invalid value provided. Expected Int or Null, provided String.

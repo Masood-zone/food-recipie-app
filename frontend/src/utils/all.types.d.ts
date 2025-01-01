@@ -60,11 +60,11 @@ type CategoriesTable = Pick<Category, "id" | "type" | "image">;
 type CreateCategory = FormData;
 type UpdateCategory = Partial<Category, "image", Pick<Category, "type">>;
 
-type RecipesTable = Pick<
+type ProductsTable = Pick<
   Recipe,
   "id" | "title" | "description" | "quantity" | "price" | "total" | "category"
 >;
-type CreateRecipe = Pick<
+type CreateProduct = Pick<
   Recipe,
   | "title"
   | "description"
@@ -74,7 +74,7 @@ type CreateRecipe = Pick<
   | "categoryId"
   | "image"
 >;
-type UpdateRecipe = Partial<
+type UpdateProduct = Partial<
   Recipe,
   "image",
   Pick<

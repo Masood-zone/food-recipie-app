@@ -16,6 +16,7 @@ exports.saveRecipe = async (req, res, next) => {
     data.quantity = parseInt(data.quantity);
     data.total = data.total ? parseInt(data.total) : 0;
     data.price = data.price ? parseInt(data.price) : 0;
+    data.categoryId = parseInt(data.categoryId);
     const item = req.file ? req.file.path : undefined;
     if (item) {
       const uploaded = await cloudinary.uploader.upload(item, {
@@ -50,7 +51,28 @@ exports.editRecipe = async (req, res, next) => {
   try {
     const data = req.body;
     const id = req.params.id;
-    const recipe = await editfood(id, data);
+
+    // Parse numeric fields if they exist
+    data.quantity = data.quantity ? parseInt(data.quantity) : undefined;
+    data.total = data.total ? parseInt(data.total) : undefined;
+    data.price = data.price ? parseInt(data.price) : undefined;
+    data.categoryId = data.categoryId ? parseInt(data.categoryId) : undefined;
+
+    // Handle image upload
+    const item = req.file ? req.file.path : undefined;
+    if (item) {
+      const uploaded = await cloudinary.uploader.upload(item, {
+        folder: "food/images",
+      });
+      if (uploaded) {
+        data.image = uploaded.secure_url; // Add image URL to the data object
+      }
+    }
+    console.log(data);
+
+    // Update recipe using the helper function
+    const recipe = await editfood(parseInt(id), data);
+
     res.status(httpstatus.OK).json({
       recipe,
     });
@@ -59,6 +81,7 @@ exports.editRecipe = async (req, res, next) => {
     next(new CustomError(500, error));
   }
 };
+
 exports.deleteRecipe = async (req, res, next) => {
   try {
     const id = req.params.id;

@@ -1,0 +1,16 @@
+2025-01-01T20:56:11.805Z [31merror[39m:	
+Invalid `prisma.recipe.update()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:29:36
+
+  26   return food;
+  27 };
+  28 const editfood = async (id, data) => {
+→ 29   const food = await prisma.recipe.update({
+         where: {
+           id: "1"
+               ~~~
+         },
+         data: {}
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
