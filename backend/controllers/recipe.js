@@ -68,8 +68,6 @@ exports.editRecipe = async (req, res, next) => {
         data.image = uploaded.secure_url; // Add image URL to the data object
       }
     }
-    console.log(data);
-
     // Update recipe using the helper function
     const recipe = await editfood(parseInt(id), data);
 
@@ -85,7 +83,7 @@ exports.editRecipe = async (req, res, next) => {
 exports.deleteRecipe = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const recipe = await removeFood(id);
+    const recipe = await removeFood(parseInt(id));
     res.status(httpstatus.OK).json({
       recipe,
     });

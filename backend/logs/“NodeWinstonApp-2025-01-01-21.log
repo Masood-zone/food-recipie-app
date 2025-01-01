@@ -19,3 +19,19 @@ C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-ap
       })
 
 Argument `categoryId`: Invalid value provided. Expected Int or Null, provided String.
+2025-01-01T21:08:52.077Z [31merror[39m:	[object Object]
+2025-01-01T21:11:05.146Z [31merror[39m:	
+Invalid `prisma.recipe.delete()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:37:42
+
+  34 };
+  35 
+  36 const removeFood = async (id) => {
+→ 37   const food = await prisma.recipe.delete({
+         where: {
+           id: "1"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.

@@ -449,3 +449,6 @@
 ::1 - - [01/Jan/2025:21:07:42 +0000] "PATCH /api/v1/web/recipe/1 HTTP/1.1" 200 237 "-" "PostmanRuntime/7.43.0"
 ::1 - - [01/Jan/2025:21:08:52 +0000] "PATCH /api/v1/web/recipe/1 HTTP/1.1" 500 410 "-" "PostmanRuntime/7.43.0"
 ::1 - - [01/Jan/2025:21:09:25 +0000] "PATCH /api/v1/web/recipe/1 HTTP/1.1" 200 341 "-" "PostmanRuntime/7.43.0"
+::1 - - [01/Jan/2025:21:09:58 +0000] "GET /api/v1/web/recipe/list HTTP/1.1" 200 667 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+::1 - - [01/Jan/2025:21:10:35 +0000] "GET /api/v1/web/recipe/list HTTP/1.1" 200 667 "-" "PostmanRuntime/7.43.0"
+::1 - - [01/Jan/2025:21:11:05 +0000] "DELETE /api/v1/web/recipe/1 HTTP/1.1" 500 936 "-" "PostmanRuntime/7.43.0"
