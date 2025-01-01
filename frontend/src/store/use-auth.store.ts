@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
+  user: JSON.parse(localStorage.getItem("user") || "null"),
   setUser: (user: User) => {
     localStorage.setItem("user", JSON.stringify(user));
     set({ user });

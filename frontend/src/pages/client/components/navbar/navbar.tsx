@@ -7,6 +7,7 @@ import {
   KeyRound,
   UserRoundPlus,
   LogOut,
+  LayoutDashboard,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -75,6 +76,13 @@ export function Navbar() {
       </div>
 
       <div className="flex divide-x border-r sm:border-l">
+        {user?.role === "ADMIN" && (
+          <NavButton
+            icon={<LayoutDashboard className="h-6 w-6" />}
+            label="Admin"
+            link="/admin"
+          />
+        )}
         <NavButton icon={<ShoppingBag className="h-6 w-6" />} label="Cart" />
         {user ? (
           <>
