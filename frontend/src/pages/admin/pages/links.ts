@@ -1,99 +1,54 @@
-import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react";
+import { GalleryVerticalEnd, Settings2, SquareTerminal } from "lucide-react";
 
 export const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Food Delivery App",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
+      plan: "",
     },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Admin Panel",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Dashboard",
+          url: "/admin",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Users",
+          url: "/admin/users",
         },
         {
-          title: "Settings",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Models",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
+          title: "Home Page",
+          url: "/",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "Setup",
       url: "#",
-      icon: BookOpen,
+      icon: GalleryVerticalEnd,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Customers",
+          url: "/admin/customers",
         },
         {
-          title: "Get Started",
-          url: "#",
+          title: "Category",
+          url: "/admin/category",
         },
         {
-          title: "Tutorials",
-          url: "#",
+          title: "Products",
+          url: "/admin/products",
         },
         {
-          title: "Changelog",
-          url: "#",
+          title: "Orders",
+          url: "/admin/orders",
         },
       ],
     },
@@ -104,38 +59,9 @@ export const data = {
       items: [
         {
           title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+          url: "/admin/settings",
         },
       ],
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 };

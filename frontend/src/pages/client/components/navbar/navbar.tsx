@@ -79,7 +79,7 @@ export function Navbar() {
         {user?.role === "ADMIN" && (
           <NavButton
             icon={<LayoutDashboard className="h-6 w-6" />}
-            label="Admin"
+            label="Dashboard"
             link="/admin"
           />
         )}
