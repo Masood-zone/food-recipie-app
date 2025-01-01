@@ -5,8 +5,9 @@ import { cn } from "@/lib/utils";
 import { CarouselLoader } from "../loader/hero-carousel-loader";
 
 interface CarouselItem {
-  image: string;
-  type: string;
+  imageUrl: string;
+  title: string;
+  description: string;
 }
 
 interface CarouselProps {
@@ -14,7 +15,7 @@ interface CarouselProps {
   autoPlayInterval?: number;
 }
 
-export function HeroCarousel({
+export function HeroCarouselFallback({
   items,
   autoPlayInterval = 5000,
 }: CarouselProps) {
@@ -57,18 +58,18 @@ export function HeroCarousel({
             <div key={index} className="w-full flex-shrink-0 relative">
               {isLoading && <CarouselLoader />}
               <img
-                src={item?.image}
-                alt={item?.type}
+                src={item?.imageUrl}
+                alt={item?.title}
                 className="object-cover brightness-50 w-full h-full"
                 onLoad={() => setIsLoading(false)}
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
                 <h2 className="text-2xl sm:text-4xl font-bold mb-2 text-center">
-                  {item?.type}
+                  {item?.title}
                 </h2>
-                {/* <p className="text-lg sm:text-xl text-center">
+                <p className="text-lg sm:text-xl text-center">
                   {item.description}
-                </p> */}
+                </p>
               </div>
             </div>
           ))}

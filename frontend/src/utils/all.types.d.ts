@@ -34,6 +34,23 @@ interface AuthState {
   setUser: (user: User) => void;
   clearUser: () => void;
 }
+// Products store
+type ShopStore = {
+  selectedCategory: number | null;
+  allProducts: Recipe[];
+  filteredProducts: Recipe[];
+  setSelectedCategory: (category: number | null) => void;
+  setAllProducts: (products: Recipe[]) => void;
+};
+type CategoryListProps = {
+  categories: Category[] | undefined;
+  isLoading: boolean;
+};
+type ProductListProps = {
+  products: Product[] | undefined;
+  isLoading: boolean;
+};
+
 // Header props
 interface HeaderProps {
   title: string;

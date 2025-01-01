@@ -1,6 +1,25 @@
+import { useFetchAllCategoriesQuery } from "@/pages/admin/services/queries/category/queries";
 import { HeroCarousel } from "../components/header/hero-carousel";
+import { HeroCarouselFallback } from "../components/header/hero-carousel-fallback";
+import { useFetchAllProductsQuery } from "@/services/products-categories/queries";
+import { useShopStore } from "@/store/use-shop-store";
+import { useEffect } from "react";
+import { CategoryList } from "../components/lists/category-lists";
+import { ProductList } from "../components/lists/product-lists";
+import { NoProductsHero } from "../components/lists/no-products-hero";
 
 export default function Home() {
+  const { data: categories, isLoading: isCategoriesLoading } =
+    useFetchAllCategoriesQuery();
+  const { data: products, isLoading: isProductsLoading } =
+    useFetchAllProductsQuery();
+  const { setAllProducts, filteredProducts, selectedCategory } = useShopStore();
+
+  useEffect(() => {
+    if (products) {
+      setAllProducts(products);
+    }
+  }, [products, setAllProducts]);
   const items = [
     {
       imageUrl:
@@ -23,9 +42,27 @@ export default function Home() {
   ];
   return (
     <section className="mx-auto max-w-screen-2xl px-4 md:px-8">
+      {/* Hero section */}
       <div className="mb-12 flex w-full md:mb-16 lg:w-2/3 mx-auto">
-        <HeroCarousel items={items} autoPlayInterval={5000} />
+        {categories?.length > 0 ? (
+          <HeroCarousel items={categories} autoPlayInterval={5000} />
+        ) : (
+          <HeroCarouselFallback items={items} autoPlayInterval={5000} />
+        )}
       </div>
+      {/* Categories list */}
+      <CategoryList categories={categories} isLoading={isCategoriesLoading} />
+      {/* No Products Hero */}
+      {selectedCategory &&
+        filteredProducts.length === 0 &&
+        !isProductsLoading && <NoProductsHero />}
+      {/* Products list */}
+      {(filteredProducts.length > 0 || !selectedCategory) && (
+        <ProductList
+          products={filteredProducts}
+          isLoading={isProductsLoading}
+        />
+      )}
     </section>
   );
 }
