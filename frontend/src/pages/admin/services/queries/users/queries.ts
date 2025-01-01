@@ -3,7 +3,12 @@
  * @module AdminUsersQueries
  */
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { createAdmin, fetchAdminById, fetchAllAdmins } from "./api";
+import {
+  createAdmin,
+  fetchAdminById,
+  fetchAllAdmins,
+  updateAdmin,
+} from "./api";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
@@ -67,7 +72,7 @@ export const useUpdateAdmin = () => {
   return useMutation({
     mutationFn: async (data: UpdateAdmin) => {
       try {
-        const response = await createAdmin(data);
+        const response = await updateAdmin(data.id, data);
         return response;
       } catch (error) {
         throw error as Error;

@@ -13,8 +13,8 @@ export const fetchAllAdmins = async () => {
 // Fetch an admin by id
 export const fetchAdminById = async (id: string) => {
   try {
-    const response = await api.get(`/client/list/${id}`);
-    return response.data;
+    const response = await api.get(`/client/${id}`);
+    return response.data?.client;
   } catch (error) {
     console.error(error);
   }
@@ -33,7 +33,7 @@ export const createAdmin = async (data: CreateAdmin) => {
 // Update an admin
 export const updateAdmin = async (id: string, data: UpdateAdmin) => {
   try {
-    const response = await api.put(`/client/${id}`, data);
+    const response = await api.patch(`/client/${id}`, data);
     return response.data;
   } catch (error) {
     console.error(error);

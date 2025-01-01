@@ -1,0 +1,47 @@
+2025-01-01T09:47:33.951Z [31merror[39m:	
+Invalid `prisma.client.findUnique()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:21:38
+
+  18 };
+  19 
+  20 const getClientById = async (id) => {
+→ 21   const client = await prisma.client.findUnique({
+         where: {
+           id: "2"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-01-01T09:47:36.035Z [31merror[39m:	
+Invalid `prisma.client.findUnique()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:21:38
+
+  18 };
+  19 
+  20 const getClientById = async (id) => {
+→ 21   const client = await prisma.client.findUnique({
+         where: {
+           id: "2"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-01-01T09:47:37.347Z [31merror[39m:	
+Invalid `prisma.client.findUnique()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\client.js:21:38
+
+  18 };
+  19 
+  20 const getClientById = async (id) => {
+→ 21   const client = await prisma.client.findUnique({
+         where: {
+           id: "2"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-01-01T09:56:03.975Z [31merror[39m:	bcrypt.decrypt is not a function
+2025-01-01T09:56:10.547Z [31merror[39m:	bcrypt.decrypt is not a function
