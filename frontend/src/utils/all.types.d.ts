@@ -62,17 +62,18 @@ type UpdateCategory = Partial<Category, "image", Pick<Category, "type">>;
 
 type ProductsTable = Pick<
   Recipe,
-  "id" | "title" | "description" | "quantity" | "price" | "total" | "category"
->;
-type CreateProduct = Pick<
-  Recipe,
+  | "id"
   | "title"
   | "description"
   | "quantity"
   | "price"
   | "total"
-  | "categoryId"
+  | "category"
   | "image"
+>;
+type CreateProduct = Pick<
+  Recipe,
+  "title" | "description" | "quantity" | "price" | "categoryId" | "image"
 >;
 type UpdateProduct = Partial<
   Recipe,

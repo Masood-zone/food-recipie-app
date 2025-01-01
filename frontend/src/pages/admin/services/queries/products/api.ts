@@ -20,7 +20,7 @@ export const fetchProductById = async (id: string) => {
   }
 };
 
-export const createProduct = async (data: CreateProduct) => {
+export const createProduct = async (data: FormData | CreateProduct) => {
   try {
     const response = await api.post("/recipe/add", data, {
       headers: {

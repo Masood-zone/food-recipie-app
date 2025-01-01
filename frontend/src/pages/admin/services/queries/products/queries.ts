@@ -38,7 +38,7 @@ export const useFetchProductByIdQuery = (id: string) => {
 export const useCreateProduct = () => {
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: async (data: CreateProduct) => {
+    mutationFn: async (data: FormData | CreateProduct) => {
       try {
         const response = await createProduct(data);
         return response;
