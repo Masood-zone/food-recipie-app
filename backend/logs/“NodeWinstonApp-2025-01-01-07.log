@@ -1,0 +1,47 @@
+2025-01-01T07:35:33.349Z [31merror[39m:	
+Invalid `prisma.category.findUnique()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\cartegory.js:17:43
+
+  14   return cartegories;
+  15 };
+  16 const getSingleCartegory = async (id) => {
+→ 17   const cartegory = await prisma.category.findUnique({
+         where: {
+           id: "1"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-01-01T07:35:59.066Z [31merror[39m:	
+Invalid `prisma.category.findUnique()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\cartegory.js:17:43
+
+  14   return cartegories;
+  15 };
+  16 const getSingleCartegory = async (id) => {
+→ 17   const cartegory = await prisma.category.findUnique({
+         where: {
+       +   id: Int
+         }
+       })
+
+Argument `id` is missing.
+2025-01-01T07:36:25.739Z [31merror[39m:	category is not defined
+2025-01-01T07:42:08.717Z [31merror[39m:	
+Invalid `prisma.category.delete()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\cartegory.js:35:49
+
+  32   return cartegory;
+  33 };
+  34 const removeCartegory = async (id) => {
+→ 35   const cartegory = await prisma.category.delete({
+         where: {
+           id: "1"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-01-01T07:43:21.181Z [31merror[39m:	Invalid cloud_name food-delivery-images
+2025-01-01T07:44:56.431Z [31merror[39m:	Invalid cloud_name food-delivery-images

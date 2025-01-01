@@ -16,10 +16,10 @@ const {
 exports.register_cartegory = async (req, res, next) => {
   try {
     const data = req.body;
-    const item = req.file ? req.file.path : undefined;
-    if (item) {
-      const uploaded = await cloudinary.uploader.upload(item, {
-        folder: "images",
+    const image = req.file ? req.file.path : undefined;
+    if (image) {
+      const uploaded = await cloudinary.uploader.upload(image, {
+        folder: "food-delivery-images",
       });
       if (uploaded) {
         data.image = uploaded.secure_url;
@@ -38,9 +38,9 @@ exports.register_cartegory = async (req, res, next) => {
 
 exports.getAllCartegories = async (req, res, next) => {
   try {
-    const cartegories = await getCartegories();
+    const categories = await getCartegories();
     res.status(httpstatus.OK).json({
-      cartegories,
+      categories,
     });
   } catch (error) {
     logger.error(error);
@@ -50,10 +50,10 @@ exports.getAllCartegories = async (req, res, next) => {
 
 exports.getSingleCartegory = async (req, res, next) => {
   try {
-    const { id } = req.param;
-    const cartegory = await getSingleCartegory(req.params.id);
+    const { id } = req.params;
+    const category = await getSingleCartegory(parseInt(id));
     res.status(httpstatus.OK).json({
-      cartegory,
+      category,
     });
   } catch (error) {
     logger.error(error);
@@ -63,11 +63,11 @@ exports.getSingleCartegory = async (req, res, next) => {
 
 exports.editCartegory = async (req, res, next) => {
   try {
-    const { id } = req.param;
+    const { id } = req.params;
     const data = req.body;
-    const cartegory = await editCartegory(req.params.id, req.body);
+    const category = await editCartegory(parseInt(id), req.body);
     res.status(httpstatus.OK).json({
-      cartegory,
+      category,
     });
   } catch (error) {
     logger.error(error);
@@ -75,10 +75,11 @@ exports.editCartegory = async (req, res, next) => {
   }
 };
 exports.removeCartegory = async (req, res, next) => {
+  const id = req.params.id;
   try {
-    const cartegory = await removeCartegory(req.params.id);
+    const category = await removeCartegory(parseInt(id));
     res.status(httpstatus.OK).json({
-      cartegory,
+      category,
     });
   } catch (error) {
     logger.error(error);
