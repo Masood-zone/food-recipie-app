@@ -75,7 +75,7 @@ exports.deleteRecipe = async (req, res, next) => {
 exports.getSingleRecipie = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const recipe = await getSingleFood(id);
+    const recipe = await getSingleFood(parseInt(id));
     res.status(httpstatus.OK).json({
       recipe,
     });

@@ -1,0 +1,15 @@
+2025-01-01T15:13:26.700Z [31merror[39m:	
+Invalid `prisma.recipe.findFirst()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:21:36
+
+  18 };
+  19 
+  20 const getSingleFood = async (id) => {
+→ 21   const food = await prisma.recipe.findFirst({
+         where: {
+           id: "1"
+               ~~~
+         }
+       })
+
+Argument `id`: Invalid value provided. Expected IntFilter or Int, provided String.
