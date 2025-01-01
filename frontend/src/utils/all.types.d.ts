@@ -27,6 +27,7 @@ type RegisterUser = Pick<User, "username" | "email" | "password"> & {
   role: "USER";
 };
 type UsersTable = Pick<User, "id" | "username" | "email" | "role">;
+type CustomersTable = Pick<User, "id" | "username" | "email" | "role">;
 type UpdateUser = Partial<User, "role", Pick<User, "username" | "email">>;
 type CreateAdmin = Pick<User, "username" | "email" | "password"> & {
   role: "ADMIN";

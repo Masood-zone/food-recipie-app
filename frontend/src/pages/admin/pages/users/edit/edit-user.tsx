@@ -6,7 +6,6 @@ import EditUserForm from "./edit-user-form";
 export default function EditUser() {
   const id = useParams<{ userId: string }>();
   const { data: user } = useFetchAdminByIdQuery(id.userId ?? "");
-  console.log(user);
 
   if (!user)
     return (
