@@ -36,7 +36,7 @@ export const createCategory = async (data: CreateCategory) => {
 
 export const updateCategory = async (id: number, data: UpdateCategory) => {
   try {
-    const response = await api.put(`/category/${id}`, data);
+    const response = await api.patch(`/category/${id}`, data);
     return response.data;
   } catch (error) {
     console.error(`Error updating category with id ${id}:`, error);

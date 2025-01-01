@@ -24,8 +24,9 @@ export const ButtonLoader = React.forwardRef<
         {...props}
       >
         {isLoading && (
-          <span className="absolute inset-0 flex items-center justify-center bg-inherit">
+          <span className="flex items-center justify-center bg-inherit">
             <Loader2 className="h-4 w-4 animate-spin" />
+            Loading...
           </span>
         )}
         <span className={cn(isLoading && "invisible")}>

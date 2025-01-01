@@ -86,7 +86,7 @@ export const useUpdateCategory = () => {
         description: "A Category has been updated on the platform",
         duration: 5000,
       });
-      navigate("/admin/categories");
+      navigate("/admin/category");
     },
     onError: (error: Error) => {
       toast.error("Error updating category", {
