@@ -6,6 +6,28 @@ interface User {
   token: string;
   role: "ADMIN" | "USER";
 }
+
+// Category
+interface Category {
+  id: number;
+  type: string;
+  image: string;
+  recipes: Recipe[];
+}
+
+// Recipe
+interface Recipe {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  quantity: number;
+  price: number;
+  total: number;
+  category: Pick<Category, "id" | "type" | "image">;
+  categoryId: number;
+}
+
 // Auth Store
 interface AuthState {
   user: User | null;
@@ -20,8 +42,7 @@ interface HeaderProps {
   buttons: ButtonInfo[];
 }
 
-// Types
-
+// All Types
 type LoginUser = Partial<User, "role", Pick<User, "email" | "password">>;
 type RegisterUser = Pick<User, "username" | "email" | "password"> & {
   role: "USER";
@@ -33,6 +54,34 @@ type CreateAdmin = Pick<User, "username" | "email" | "password"> & {
   role: "ADMIN";
 };
 type UpdateAdmin = Partial<User, "role", Pick<User, "username" | "email">>;
+
+// Category, Recipe
+type CategoriesTable = Pick<Category, "id" | "type" | "image">;
+type CreateCategory = Pick<Category, "id" | "type" | "image">;
+type UpdateCategory = Partial<Category, "image", Pick<Category, "type">>;
+
+type RecipesTable = Pick<
+  Recipe,
+  "id" | "title" | "description" | "quantity" | "price" | "total" | "category"
+>;
+type CreateRecipe = Pick<
+  Recipe,
+  | "title"
+  | "description"
+  | "quantity"
+  | "price"
+  | "total"
+  | "categoryId"
+  | "image"
+>;
+type UpdateRecipe = Partial<
+  Recipe,
+  "image",
+  Pick<
+    Recipe,
+    "title" | "description" | "quantity" | "price" | "total" | "categoryId"
+  >
+>;
 
 type Errors = {
   response: {
