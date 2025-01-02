@@ -35,3 +35,76 @@ C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-ap
        })
 
 Argument `id`: Invalid value provided. Expected Int, provided String.
+2025-01-01T21:18:27.701Z [31merror[39m:	
+Invalid `prisma.recipe.findMany()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:11:37
+
+   8 };
+   9 
+  10 const getFoods = async () => {
+→ 11   const foods = await prisma.recipe.findMany({
+         orderBy: {
+           createdAt: "desc",
+           category: true
+                     ~~~~
+         }
+       })
+
+Argument `category`: Invalid value provided. Expected CategoryOrderByWithRelationInput, provided Boolean.
+2025-01-01T21:18:29.907Z [31merror[39m:	
+Invalid `prisma.recipe.findMany()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:11:37
+
+   8 };
+   9 
+  10 const getFoods = async () => {
+→ 11   const foods = await prisma.recipe.findMany({
+         orderBy: {
+           createdAt: "desc",
+           category: true
+                     ~~~~
+         }
+       })
+
+Argument `category`: Invalid value provided. Expected CategoryOrderByWithRelationInput, provided Boolean.
+2025-01-01T21:18:31.847Z [31merror[39m:	
+Invalid `prisma.recipe.findMany()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:11:37
+
+   8 };
+   9 
+  10 const getFoods = async () => {
+→ 11   const foods = await prisma.recipe.findMany({
+         orderBy: {
+           createdAt: "desc",
+           category: true
+                     ~~~~
+         }
+       })
+
+Argument `category`: Invalid value provided. Expected CategoryOrderByWithRelationInput, provided Boolean.
+2025-01-01T21:18:58.153Z [31merror[39m:	
+Invalid `prisma.recipe.findMany()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:11:37
+
+   8 };
+   9 
+  10 const getFoods = async () => {
+→ 11   const foods = await prisma.recipe.findMany({
+         orderBy: {
+           createdAt: "desc",
+           category: "asc"
+                     ~~~~~
+         }
+       })
+
+Argument `category`: Invalid value provided. Expected CategoryOrderByWithRelationInput, provided String.
+2025-01-01T21:30:28.278Z [31merror[39m:	
+Invalid `prisma.recipe.delete()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:39:42
+
+  36 };
+  37 
+  38 const removeFood = async (id) => {
+→ 39   const food = await prisma.recipe.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.

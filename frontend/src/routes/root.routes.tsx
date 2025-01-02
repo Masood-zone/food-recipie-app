@@ -34,7 +34,7 @@ const rootRoutes = createBrowserRouter(
           />
           {/* About us */}
           <Route
-            path="about-us"
+            path="about"
             lazy={async () => {
               const { default: AboutUs } = await import("@/pages/client/about");
               return { Component: AboutUs };
@@ -46,6 +46,16 @@ const rootRoutes = createBrowserRouter(
             lazy={async () => {
               const { default: Cart } = await import("@/pages/client/cart");
               return { Component: Cart };
+            }}
+          />
+          {/* Contact Us */}
+          <Route
+            path="contact"
+            lazy={async () => {
+              const { default: ContactUs } = await import(
+                "@/pages/client/contact/contact"
+              );
+              return { Component: ContactUs };
             }}
           />
           {/* Checkout */}

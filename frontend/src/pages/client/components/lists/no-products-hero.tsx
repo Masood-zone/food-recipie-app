@@ -2,7 +2,7 @@ export function NoProductsHero() {
   //   const { setSelectedCategory } = useShopStore();
 
   return (
-    <div className="bg-primary-foreground py-12 px-4 sm:px-6 lg:px-8 rounded-lg mb-8">
+    <div className="py-12 px-4 sm:px-6 lg:px-8 rounded-lg mb-8">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl font-extrabold sm:text-4xl">
           No products found in this category

@@ -14,8 +14,9 @@ exports.saveRecipe = async (req, res, next) => {
   try {
     const data = req.body;
     data.quantity = parseInt(data.quantity);
-    data.total = data.total ? parseInt(data.total) : 0;
     data.price = data.price ? parseInt(data.price) : 0;
+    // Calculate total dynamically
+    data.total = data.price * data.quantity;
     data.categoryId = parseInt(data.categoryId);
     const item = req.file ? req.file.path : undefined;
     if (item) {
@@ -54,8 +55,9 @@ exports.editRecipe = async (req, res, next) => {
 
     // Parse numeric fields if they exist
     data.quantity = data.quantity ? parseInt(data.quantity) : undefined;
-    data.total = data.total ? parseInt(data.total) : undefined;
     data.price = data.price ? parseInt(data.price) : undefined;
+    // Recalculate total dynamically
+    data.total = data.price * data.quantity;
     data.categoryId = data.categoryId ? parseInt(data.categoryId) : undefined;
 
     // Handle image upload

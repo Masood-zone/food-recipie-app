@@ -1,0 +1,140 @@
+2025-01-01T23:37:46.948Z [31merror[39m:	
+Invalid `prisma.recipe.update()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:31:36
+
+  28   return food;
+  29 };
+  30 const editfood = async (id, data) => {
+→ 31   const food = await prisma.recipe.update({
+         where: {
+           id: 8
+         },
+         data: {
+           categoryId: 7,
+           ~~~~~~~~~~
+           quantity: undefined,
+           price: undefined,
+           total: NaN,
+       ?   image?: String | NullableStringFieldUpdateOperationsInput | Null,
+       ?   title?: String | StringFieldUpdateOperationsInput,
+       ?   description?: String | StringFieldUpdateOperationsInput,
+       ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   category?: CategoryUpdateOneWithoutRecipesNestedInput,
+       ?   orderDetails?: OrderDetailsUpdateManyWithoutRecipeNestedInput
+         }
+       })
+
+Unknown argument `categoryId`. Did you mean `category`? Available options are marked with ?.
+2025-01-01T23:37:50.484Z [31merror[39m:	
+Invalid `prisma.recipe.update()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:31:36
+
+  28   return food;
+  29 };
+  30 const editfood = async (id, data) => {
+→ 31   const food = await prisma.recipe.update({
+         where: {
+           id: 8
+         },
+         data: {
+           categoryId: 7,
+           ~~~~~~~~~~
+           quantity: undefined,
+           price: undefined,
+           total: NaN,
+       ?   image?: String | NullableStringFieldUpdateOperationsInput | Null,
+       ?   title?: String | StringFieldUpdateOperationsInput,
+       ?   description?: String | StringFieldUpdateOperationsInput,
+       ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   category?: CategoryUpdateOneWithoutRecipesNestedInput,
+       ?   orderDetails?: OrderDetailsUpdateManyWithoutRecipeNestedInput
+         }
+       })
+
+Unknown argument `categoryId`. Did you mean `category`? Available options are marked with ?.
+2025-01-01T23:38:15.186Z [31merror[39m:	
+Invalid `prisma.recipe.update()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:31:36
+
+  28   return food;
+  29 };
+  30 const editfood = async (id, data) => {
+→ 31   const food = await prisma.recipe.update({
+         where: {
+           id: 8
+         },
+         data: {
+           categoryId: 7,
+           ~~~~~~~~~~
+           quantity: undefined,
+           price: undefined,
+           total: NaN,
+       ?   image?: String | NullableStringFieldUpdateOperationsInput | Null,
+       ?   title?: String | StringFieldUpdateOperationsInput,
+       ?   description?: String | StringFieldUpdateOperationsInput,
+       ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   category?: CategoryUpdateOneWithoutRecipesNestedInput,
+       ?   orderDetails?: OrderDetailsUpdateManyWithoutRecipeNestedInput
+         }
+       })
+
+Unknown argument `categoryId`. Did you mean `category`? Available options are marked with ?.
+2025-01-01T23:38:58.091Z [31merror[39m:	
+Invalid `prisma.recipe.update()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:31:36
+
+  28   return food;
+  29 };
+  30 const editfood = async (id, data) => {
+→ 31   const food = await prisma.recipe.update({
+         where: {
+           id: 8
+         },
+         data: {
+           categoryId: 7,
+           ~~~~~~~~~~
+           quantity: undefined,
+           price: undefined,
+           total: NaN,
+       ?   image?: String | NullableStringFieldUpdateOperationsInput | Null,
+       ?   title?: String | StringFieldUpdateOperationsInput,
+       ?   description?: String | StringFieldUpdateOperationsInput,
+       ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   category?: CategoryUpdateOneWithoutRecipesNestedInput,
+       ?   orderDetails?: OrderDetailsUpdateManyWithoutRecipeNestedInput
+         }
+       })
+
+Unknown argument `categoryId`. Did you mean `category`? Available options are marked with ?.
+2025-01-01T23:39:12.154Z [31merror[39m:	
+Invalid `prisma.recipe.update()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\recipe.js:31:36
+
+  28   return food;
+  29 };
+  30 const editfood = async (id, data) => {
+→ 31   const food = await prisma.recipe.update({
+         where: {
+           id: 8
+         },
+         data: {
+           categoryId: 7,
+           ~~~~~~~~~~
+           quantity: undefined,
+           price: undefined,
+           total: NaN,
+       ?   image?: String | NullableStringFieldUpdateOperationsInput | Null,
+       ?   title?: String | StringFieldUpdateOperationsInput,
+       ?   description?: String | StringFieldUpdateOperationsInput,
+       ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+       ?   category?: CategoryUpdateOneWithoutRecipesNestedInput,
+       ?   orderDetails?: OrderDetailsUpdateManyWithoutRecipeNestedInput
+         }
+       })
+
+Unknown argument `categoryId`. Did you mean `category`? Available options are marked with ?.

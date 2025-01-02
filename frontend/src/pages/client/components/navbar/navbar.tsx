@@ -1,15 +1,9 @@
-import { logo } from "@/assets";
-import { Button } from "@/components/ui/button";
-import {
-  User,
-  Menu,
-  ShoppingBag,
-  KeyRound,
-  UserRoundPlus,
-  LogOut,
-  LayoutDashboard,
-} from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { logo } from "@/assets";
+import { useAuthStore } from "@/store/use-auth.store";
+import { useShopStore } from "@/store/use-shop-store";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,30 +12,31 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useAuthStore } from "@/store/use-auth.store";
-
-function MobileMenu() {
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger>
-        <NavButton icon={<Menu className="h-6 w-6" />} label="Menu" />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>Visit Pages</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <Link to="/about">About Us</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link to="/contact">Contact Us</Link>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  User,
+  Menu,
+  ShoppingBag,
+  KeyRound,
+  UserRoundPlus,
+  LogOut,
+  LayoutDashboard,
+  Settings,
+} from "lucide-react";
+import { getInitials } from "@/utils/generateInitials";
 
 export function Navbar() {
   const { user, clearUser } = useAuthStore();
+  const cart = useShopStore((state) => state.cart);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = [
     { label: "Home", to: "/" },
@@ -53,8 +48,10 @@ export function Navbar() {
     clearUser();
   };
 
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
-    <nav className="flex items-center justify-between px-4 md:px-8">
+    <nav className="flex items-center justify-between px-4 py-4 md:px-8">
       <Link
         to="/"
         className="inline-flex items-center gap-2.5 text-2xl font-bold md:text-3xl"
@@ -63,7 +60,7 @@ export function Navbar() {
         Aven Foods
       </Link>
 
-      <div className="hidden gap-12 lg:flex 2xl:ml-16">
+      <div className="hidden gap-8 lg:flex">
         {links.map((link) => (
           <Link
             key={link.to}
@@ -75,93 +72,137 @@ export function Navbar() {
         ))}
       </div>
 
-      <div className="flex divide-x border-r sm:border-l">
-        {user?.role === "ADMIN" && (
-          <NavButton
-            icon={<LayoutDashboard className="h-6 w-6" />}
-            label="Dashboard"
-            link="/admin"
-          />
-        )}
-        <NavButton icon={<ShoppingBag className="h-6 w-6" />} label="Cart" />
+      <div className="flex items-center gap-4">
+        <Link to="/cart" className="relative">
+          <Button variant="ghost" size="icon">
+            <ShoppingBag className="h-6 w-6" />
+            {cartItemCount > 0 && (
+              <span className="absolute top-2 -right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                {cartItemCount}
+              </span>
+            )}
+          </Button>
+        </Link>
+
         {user ? (
-          <>
-            <NavButton
-              icon={<User className="h-6 w-6" />}
-              label="Account"
-              link="/auth/user"
-            />
-            <NavButton
-              icon={<LogOut className="h-6 w-6" />}
-              label="Log out"
-              onClick={handleLogout}
-            />
-          </>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-medium hidden md:inline-block">
+              {user.username} ({user.email})
+            </span>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="relative h-8 w-8 rounded-full"
+                >
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={user.email} alt={user.username} />
+                    <AvatarFallback>
+                      {getInitials(user?.username, user?.email)}
+                    </AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuLabel className="font-normal">
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-medium leading-none">
+                      {user.username}
+                    </p>
+                    <p className="text-xs leading-none text-muted-foreground">
+                      {user.email}
+                    </p>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Account</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Settings className="mr-2 h-4 w-4" />
+                  <span>Settings</span>
+                </DropdownMenuItem>
+                {user.role === "ADMIN" && (
+                  <DropdownMenuItem>
+                    <LayoutDashboard className="mr-2 h-4 w-4" />
+                    <span>
+                      <Link to="/admin">Dashboard</Link>
+                    </span>
+                  </DropdownMenuItem>
+                )}
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleLogout}>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Log out</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         ) : (
-          <>
-            <NavButton
-              icon={<UserRoundPlus className="h-6 w-6" />}
-              label="Register"
-              link="/auth/signup"
-            />
-            <NavButton
-              icon={<KeyRound className="h-6 w-6" />}
-              label="Login"
-              link="/auth/login"
-            />
-          </>
+          <div className="hidden sm:flex sm:items-center sm:gap-4">
+            <Button asChild variant="ghost">
+              <Link to="/auth/login">
+                <KeyRound className="mr-2 h-4 w-4" />
+                Login
+              </Link>
+            </Button>
+            <Button asChild>
+              <Link to="/auth/signup">
+                <UserRoundPlus className="mr-2 h-4 w-4" />
+                Register
+              </Link>
+            </Button>
+          </div>
         )}
-        <div className="lg:hidden">
-          <MobileMenu />
-        </div>
+
+        <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon" className="lg:hidden">
+              <Menu className="h-6 w-6" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right">
+            <SheetHeader>
+              <SheetTitle>Menu</SheetTitle>
+              <SheetDescription>
+                Navigate through our delicious offerings
+              </SheetDescription>
+            </SheetHeader>
+            <div className="mt-6 flex flex-col space-y-4">
+              {links.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="text-lg font-semibold text-primary transition duration-100 hover:text-foreground active:text-muted/20"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {!user && (
+                <>
+                  <Button asChild variant="outline">
+                    <Link to="/auth/login" onClick={() => setIsMenuOpen(false)}>
+                      <KeyRound className="mr-2 h-4 w-4" />
+                      Login
+                    </Link>
+                  </Button>
+                  <Button asChild>
+                    <Link
+                      to="/auth/signup"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <UserRoundPlus className="mr-2 h-4 w-4" />
+                      Register
+                    </Link>
+                  </Button>
+                </>
+              )}
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
-  );
-}
-
-function NavButton({
-  icon,
-  label,
-  className = "",
-  link,
-  onClick,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  className?: string;
-  link?: string;
-  onClick?: () => void;
-}) {
-  const ButtonContent = (
-    <>
-      {icon}
-      <span className="hidden text-xs font-semibold text-gray-500 sm:block">
-        {label}
-      </span>
-    </>
-  );
-
-  if (link) {
-    return (
-      <Link
-        to={link}
-        className={`h-12 w-12 flex-col items-center justify-center gap-1.5 sm:h-20 sm:w-20 md:h-24 md:w-24 ${className}`}
-      >
-        <Button variant="ghost" size="icon" className="h-full w-full">
-          {ButtonContent}
-        </Button>
-      </Link>
-    );
-  }
-
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      className={`h-12 w-12 flex-col items-center justify-center gap-1.5 sm:h-20 sm:w-20 md:h-24 md:w-24 ${className}`}
-      onClick={onClick}
-    >
-      {ButtonContent}
-    </Button>
   );
 }

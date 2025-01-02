@@ -1,7 +1,6 @@
 const prisma = require("../utils/prismaUtil");
 
 const addFood = async (data) => {
-
   const food = await prisma.recipe.create({
     data,
   });
@@ -10,6 +9,9 @@ const addFood = async (data) => {
 
 const getFoods = async () => {
   const foods = await prisma.recipe.findMany({
+    include: {
+      category: true,
+    },
     orderBy: {
       createdAt: "desc",
     },
