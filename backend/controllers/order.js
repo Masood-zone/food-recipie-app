@@ -9,6 +9,7 @@ const {
   editOrder,
   removeOrder,
   editOrderStatus,
+  loadOrdersByClient,
 } = require("../helpers/order");
 const { addDelivery } = require("../helpers/delivery");
 
@@ -52,6 +53,18 @@ exports.createOrder = async (req, res, next) => {
 exports.getAllOrders = async (req, res, next) => {
   try {
     const orders = await loadOrders();
+    res.status(httpstatus.OK).json({
+      orders,
+    });
+  } catch (error) {
+    logger.error(error);
+    next(new CustomError(error.message, error.status));
+  }
+};
+exports.getUserOrders = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const orders = await loadOrdersByClient(id);
     res.status(httpstatus.OK).json({
       orders,
     });

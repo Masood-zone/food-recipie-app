@@ -27,6 +27,37 @@ interface Recipe {
   category: Pick<Category, "id" | "type" | "image">;
   categoryId: number;
 }
+// Order
+interface Order {
+  id: number;
+  subTotal: number;
+  deliveryFee: number;
+  clientId: number;
+  status: "PENDING" | "DELIVERED" | "CANCELLED";
+  orderDetails: OrderDetail[];
+}
+// Delivery Info
+interface DeliveryInfo {
+  id: number;
+  firstname: string;
+  lastname: string;
+  email: string;
+  street_name: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  country: string;
+  phonenumber: string;
+  orderId: number;
+}
+// Order Detail
+interface OrderDetail {
+  id: number;
+  recipeId: number;
+  quantity: number;
+  price: number;
+  orderId: number;
+}
 
 // Auth Store
 interface AuthState {

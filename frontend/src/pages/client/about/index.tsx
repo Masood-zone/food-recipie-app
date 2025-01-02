@@ -5,17 +5,20 @@ const teamMembers = [
   {
     name: "John Doe",
     role: "CEO",
-    image: "/placeholder.svg?height=200&width=200",
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww",
   },
   {
     name: "Jane Smith",
     role: "Head Chef",
-    image: "/placeholder.svg?height=200&width=200",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww",
   },
   {
     name: "Mike Johnson",
     role: "Marketing Director",
-    image: "/placeholder.svg?height=200&width=200",
+    image:
+      "https://images.unsplash.com/photo-1636041263374-dff82464f619?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D",
   },
 ];
 

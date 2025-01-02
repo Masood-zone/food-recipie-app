@@ -1,0 +1,22 @@
+2025-01-02T00:43:46.369Z [31merror[39m:	
+Invalid `prisma.order.create()` invocation in
+C:\Users\masoo\OneDrive\Desktop\Projects\FoodDeliveryApp-Rebuild\food-recipie-app\backend\helpers\order.js:4:36
+
+  1 const prisma = require("../utils/prismaUtil");
+  2 
+  3 const saveOrder = async (data) => {
+→ 4   const order = await prisma.order.create({
+        data: {
+          clientId: undefined,
+          subTotal: undefined,
+          deliveryFee: undefined,
+          orderDetails: {
+            createMany: {
+              data: undefined
+            }
+          },
+      +   status: String
+        }
+      })
+
+Argument `status` is missing.

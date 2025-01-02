@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
 import { useShopStore } from "@/store/use-shop-store";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Cart() {
+  const navigate = useNavigate();
   const { cart, removeFromCart, clearCart, updateCartItemQuantity } =
     useShopStore();
 
@@ -95,11 +96,7 @@ export default function Cart() {
               Total Price: Ghc{totalPrice.toFixed(2)}
             </p>
             <div className="mt-4 space-x-4">
-              <Button
-                onClick={() => alert("Checkout functionality not implemented")}
-              >
-                Checkout
-              </Button>
+              <Button onClick={() => navigate("/checkout")}>Checkout</Button>
               <Button variant="outline" onClick={clearCart}>
                 Clear Cart
               </Button>

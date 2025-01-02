@@ -21,6 +21,20 @@ const loadOrders = async () => {
   return orders;
 };
 
+const loadOrdersByClient = async (clientId) => {
+  const orders = await prisma.order.findMany({
+    where: {
+      clientId,
+    },
+    include: {
+      orderDetails: true,
+      delivery: true,
+      client: true,
+    },
+  });
+  return orders;
+};
+
 const loadOrder = async (id) => {
   const order = await prisma.order.findUnique({
     where: {
@@ -79,4 +93,5 @@ module.exports = {
   editOrder,
   removeOrder,
   editOrderStatus,
+  loadOrdersByClient,
 };

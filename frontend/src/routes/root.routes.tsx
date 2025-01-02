@@ -59,6 +59,56 @@ const rootRoutes = createBrowserRouter(
             }}
           />
           {/* Checkout */}
+          <Route
+            path="checkout"
+            lazy={async () => {
+              const { default: CheckoutLayout } = await import(
+                "@/pages/client/checkout"
+              );
+              return { Component: CheckoutLayout };
+            }}
+          >
+            {/* Delivery Info */}
+            <Route
+              path="delivery-info"
+              lazy={async () => {
+                const { default: DeliveryInfo } = await import(
+                  "@/pages/client/checkout/delivery-info/delivery-info"
+                );
+                return { Component: DeliveryInfo };
+              }}
+            />
+            {/* Payment Info */}
+            <Route
+              path="payment-info"
+              lazy={async () => {
+                const { default: PaymentInfo } = await import(
+                  "@/pages/client/checkout/payment/payment-info"
+                );
+                return { Component: PaymentInfo };
+              }}
+            />
+            {/* Order Confirmation */}
+            <Route
+              path="confirmation"
+              lazy={async () => {
+                const { default: OrderConfirmation } = await import(
+                  "@/pages/client/checkout/confirmation/confirmation"
+                );
+                return { Component: OrderConfirmation };
+              }}
+            />
+            {/* Order Confirmed */}
+            <Route
+              path="order-confirmed"
+              lazy={async () => {
+                const { default: OrderConfirmed } = await import(
+                  "@/pages/client/checkout/confirmation/order-confirmed"
+                );
+                return { Component: OrderConfirmed };
+              }}
+            />
+          </Route>
         </Route>
         {/* Auth Routes */}
         <Route path="auth" element={<AuthLayout />}>
